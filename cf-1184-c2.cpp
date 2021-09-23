@@ -17,31 +17,31 @@ class Tree{
             add[gdzie]+=co;
             drzewo[gdzie]+=co;
         }
-		void push(const int& gdzie){
-			dodaj(2*gdzie,add[gdzie]);
-			dodaj(2*gdzie+1,add[gdzie]);
-			add[gdzie]=0;
+	void push(const int& gdzie){
+		dodaj(2*gdzie,add[gdzie]);
+		dodaj(2*gdzie+1,add[gdzie]);
+		add[gdzie]=0;
+	}
+	void insert(const int& a,const int& b,const int& co,const int& gdzie=1,const int& lewo=1,const int& prawo=size){
+		if(lewo>=a&&prawo<=b){
+			dodaj(gdzie,co);
+			return;
 		}
-		void insert(const int& a,const int& b,const int& co,const int& gdzie=1,const int& lewo=1,const int& prawo=size){
-			if(lewo>=a&&prawo<=b){
-				dodaj(gdzie,co);
-				return;
-			}
-			push(gdzie);
-			int srodek=(lewo+prawo)/2;
-			if (a<=srodek) insert(a,b,co,2*gdzie,lewo,srodek);
-			if (b>srodek) insert(a,b,co,2*gdzie+1,srodek+1,prawo);
-			drzewo[gdzie]=max(drzewo[2*gdzie],drzewo[2*gdzie+1])+add[gdzie];
-		}
-		long long query(const int& a,const int& b,const int& gdzie=1,const int& lewo=1,const int& prawo=size){
-			if(lewo>=a&&prawo<=b) return drzewo[gdzie];
-			push(gdzie);
-			int srodek=(lewo+prawo)/2;
-			long long res=-MAX_L;
-			if (a<=srodek) res=max(res,query(a,b,2*gdzie,lewo,srodek));
-			if (b>srodek) res=max(res,query(a,b,2*gdzie+1,srodek+1,prawo));
-			return res;
-		}
+		push(gdzie);
+		int srodek=(lewo+prawo)/2;
+		if (a<=srodek) insert(a,b,co,2*gdzie,lewo,srodek);
+		if (b>srodek) insert(a,b,co,2*gdzie+1,srodek+1,prawo);
+		drzewo[gdzie]=max(drzewo[2*gdzie],drzewo[2*gdzie+1])+add[gdzie];
+	}
+	long long query(const int& a,const int& b,const int& gdzie=1,const int& lewo=1,const int& prawo=size){
+		if(lewo>=a&&prawo<=b) return drzewo[gdzie];
+		push(gdzie);
+		int srodek=(lewo+prawo)/2;
+		long long res=-MAX_L;
+		if (a<=srodek) res=max(res,query(a,b,2*gdzie,lewo,srodek));
+		if (b>srodek) res=max(res,query(a,b,2*gdzie+1,srodek+1,prawo));
+		return res;
+	}
 } tree;
      
 int n,r,a,b;
