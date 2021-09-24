@@ -27,7 +27,6 @@ int main(){
 		if(!m[t[i]]) m.erase(t[i]);
 	}
 	if(m.empty()) ++w;
-//	for(auto i:m) cout << i.ST << " " << i.ND << "\n"; cout << "\n";
 	for (int i=a;i<n;++i){
 		--m[t[i-a]];
 		++m[t[i]];
