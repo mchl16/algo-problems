@@ -10,7 +10,7 @@ vector<int> v;
 struct tc{
 	int n,res;
 	int t[2022],pos[2022];
-	void rev(const int& k){ //reverse the [1,k] prefix
+	void rev(const int& k){ //reverse the prefix of length k
 		v.push_back(k);
 		reverse(t,t+k);
 		for (int i=0;i<k;++i) pos[t[i]]=i;
