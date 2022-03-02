@@ -1,3 +1,4 @@
+<WORK IN PROGRESS, I'D ACTUALLY PREFER TO SOLVE PROBLEMS THAN SUBMIT THEIR SOLUTIONS HERE, THAT'S JUST TO SHOW OFF A BIT>
 This repository contains solutions to algorithmic problems I've solved.<br>
 Isn't it obvious that you shouldn't check them out if you want to solve them yourself? <br>
 Links to websites with problem statements and online judge software can be found in the source code files.<br>
